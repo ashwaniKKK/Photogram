@@ -10,6 +10,21 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+        <div class="navbar-header">
+              <%= link_to "Photogram" , posts_path , :class => "navbar-brand"  %>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+              <li><%= link_to "New Post" , new_post_path %></li>
+              <li><a href="#">Post</a></li>
+              <li><a href="#">Register</a></li>
+              <li><a href="#">Login</a></li>
+              </ul>
+        </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+    </nav>
     <%= yield %>
   </body>
 </html>

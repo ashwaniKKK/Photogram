@@ -1,14 +1,20 @@
 <div class="container">
 
-     <h4 class="text-center"> Welcome To Photogram </h4>
+     <h4 class="text-center"> <b> Welcome To Photogram </b> </h4>
 
-     <% @posts.each do |post| %>
-          <div class="thumbnail">
-               <div class="caption text-center">
-                    <%= post.caption %>
-               </div>
-               <%= link_to (image_tag post.image.url(:medium), class:'img-responsive'), post_path(post) %>
+     <div class="row"> 
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+               <% @posts.each do |post| %>
+                    <div class="thumbnail">
+                         <div class="caption text-center">
+                              <%= post.caption %>
+                         </div>
+                         <%= link_to (image_tag post.image.url(:medium), class:'img-responsive'), post_path(post) %>
+                    </div>
+               <% end %>
           </div>
-     <% end %>
+          <div class="col-md-2"></div>
+     </div>
 
 </div>

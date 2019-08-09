@@ -1,17 +1,18 @@
 class PostsController < ApplicationController
      
      before_action :authenticate_user!
+     before_action :owned_post, only: [:edit, :update, :destroy]
 
      def index
           @posts = Post.all
      end
 
      def new
-          @post = Post.new
+          @post = current_user.posts.new
      end
 
      def create
-          @post = Post.new(post_params)
+          @post = current_user.posts.new(post_params)
           if(@post.save)
                redirect_to posts_path
           else
@@ -46,5 +47,12 @@ class PostsController < ApplicationController
 
           def post_params
                params.require(:post).permit(:image, :caption)
+          end
+
+          def owned_post
+               @post = Post.find(params[:id])
+               unless current_user == @post.user
+                    redirect_to root_path
+               end
           end
 end

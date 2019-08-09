@@ -1,5 +1,17 @@
-<%= simple_form_for @post do |f| %>
-  <%= f.input :image, label: 'Upload Your Image', error: 'You must choose image' %> <br>
-  <%= f.input :caption %> <br>
-  <%= f.button :submit %> <br>
-<% end %>
+<div class="container row">
+     <div class="col-md-4"> </div>
+     <div class = "col-md-4">
+          <%= simple_form_for @post do |f| %>
+          <div class="form-group">
+               <%= f.input :image, label: 'Upload Your Image', error: 'You must choose image' %> <br>
+          </div>
+          <div class="form-group">
+               <%= f.input :caption %>
+          </div>
+          <div class="form-group">
+               <%= f.button :submit %> 
+          </div>
+          <% end %>
+     </div>
+     <div class="col-md-4"></div>
+</div>
